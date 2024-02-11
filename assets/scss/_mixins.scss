@@ -9,3 +9,9 @@
   background-position: center;
   background-repeat: no-repeat;
 }
+
+@mixin queryMaxWidth($size) {
+  @media (max-width: $size) {
+    @content;
+  }
+}

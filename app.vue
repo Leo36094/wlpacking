@@ -1,27 +1,38 @@
 <template>
   <div class="app">
-    <div class="nav">
-      <div class="logo">LOGO</div>
-      <ul>
-        <li><nuxt-link to="/">公司簡介</nuxt-link></li>
-        <li><nuxt-link to="#product">產品介紹</nuxt-link></li>
-        <li><nuxt-link to="#professional">檢疫與熱處理</nuxt-link></li>
-        <li><nuxt-link to="#contact">聯絡我們</nuxt-link></li>
-      </ul>
-    </div>
+    <Nav />
     <div class="slider-wrapper">
       <div class="slider-container">
         <div class="slider">
           <div class="title">維利包裝</div>
           <div class="desc">
-            忍完夏欠沒跳放，請包色得教助日斥點掃也朱詞音有，細寺旦綠多急實朋洋急流午心雄空請，得種習平歡很大；四河停帽信別，
+            <p class="desc-main">
+              <span class="animated-text" :style="{ animationDelay: '1s' }"
+                ><strong>最堅固的品質包裝</strong></span
+              >
+              <span class="animated-text" :style="{ animationDelay: '2s' }"
+                ><strong>安全的產品服務</strong></span
+              >
+              <span class="animated-text" :style="{ animationDelay: '3s' }"
+                ><strong>迅速的完善作業</strong></span
+              >
+              <span class="animated-text" :style="{ animationDelay: '4s' }"
+                ><strong>節省成本的態度</strong></span
+              >
+            </p>
+            <p class="desc-sub">
+              滿足所有客戶對於木箱包裝各項需求之服務精神，進而達成企業永續經營、誠信負責的目標。
+            </p>
+            <p class="desc-other">
+              提高更卓越的製品水準及升級作業效率，並提供在維利公司廠區製作木箱、上櫃、固定貨櫃一貫作業之服務，為客戶提供更好的消費環境。
+            </p>
           </div>
         </div>
       </div>
     </div>
     <div class="our-service">
       <div class="container">
-        <h2 class="title">我們的服務</h2>
+        <SectionTitle title="我們的服務" />
         <div class="service-list">
           <div class="service-item" v-for="(item, idx) in services" :key="idx">
             <div class="service-item__img">
@@ -42,10 +53,11 @@
       <div class="container portfolio-container">
         <div class="group">
           <div class="portfolio-info">
-            <h2 class="title">我們的作品</h2>
-            <p class="desc">
-              忍完夏欠沒跳放，請包色得教助日斥點掃也朱詞音有，細寺旦綠多急實朋洋急流午心雄空請，得種習平歡很大；四河停帽信別，
-            </p>
+            <SectionTitle
+              class="title-group"
+              title="我們的作品"
+              desc="  忍完夏欠沒跳放，請包色得教助日斥點掃也朱詞音有，細寺旦綠多急實朋洋急流午心雄空請，得種習平歡很大；四河停帽信別，"
+            />
           </div>
           <div class="portfolio-list-container">
             <div
@@ -67,9 +79,60 @@
         </div>
       </div>
     </div>
+    <div class="heat-step">
+      <div class="container">
+        <h2 class="title">木材檢疫熱處理</h2>
+        <div class="steps">
+          <div
+            class="step-card-container"
+            v-for="(step, index) in steps"
+            :key="index"
+          >
+            <p class="step-num">STEP {{ index + 1 }}</p>
+            <div class="step-arrow">➜</div>
+            <div class="step-card">
+              <div
+                class="step-card__img"
+                :style="{ backgroundImage: `url(${step.img})` }"
+              ></div>
+              <div class="step-card__desc">{{ step.desc }}</div>
+            </div>
+          </div>
+        </div>
+        <div class="step-detail">
+          <p>
+            本公司為行政院農委會動植物防疫檢疫局熱處理合格廠商及績優廠商，使用之設備符合ISPM15(國際植物防疫檢疫措施第15號標準)規定。
+          </p>
+          <p>
+            將木材中心溫度加熱至攝氏56度以上，並連續保持30分鐘以上，經熱處理檢疫處理後，於明顯處蓋上國際植物保護公約IPPC檢疫戳章，以標示完成檢疫處理。
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="cert">
+      <div class="container">
+        <h2 class="title">證書</h2>
+        <div class="cert-list">
+          <!-- <div class="cert-item">
+            <img src="/weili@2/cert01.jpg" alt="" />
+          </div>
+          <div class="cert-item">
+            <img src="/weili@2/cert02.jpg" alt="" />
+          </div>
+          <div class="cert-item">
+            <img src="/weili@2/cert03.jpg" alt="" />
+          </div>
+          <div class="cert-item">
+            <img src="/weili@2/cert04.jpg" alt="" />
+          </div> -->
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 <script setup lang="ts">
+import Nav from './components/Nav';
+import SectionTitle from './components/SectionTitle';
 const services = [
   { name: '木箱（Box Service)', img: '/weili@2/box01.jpg' },
   { name: '棧板（Pallets）', img: '/weili@2/pallet01.jpg' },
@@ -87,34 +150,50 @@ const portfolios = [
   '/weili@2/box07.jpg',
   '/weili@2/box08.jpg',
 ];
+const steps = [
+  { img: '/heat-step/quar-1.jpg', desc: '熱處理機符合ISPM15標準' },
+  { img: '/heat-step/quar-2.jpeg', desc: '測量處理前木材含水濕度' },
+  {
+    img: '/heat-step/quar-3.jpeg',
+    desc: '推入木箱、木箱半成品擺放，不可堵塞出風口',
+  },
+  { img: '/heat-step/quar-4.jpeg', desc: '鑽上溫度探針計孔共6區' },
+  {
+    img: '/heat-step/quar-5.jpeg',
+    desc: '插上測量木材中心溫度計，共6支並且填入樹脂',
+  },
+  { img: '/heat-step/quar-6.jpeg', desc: '關閉室門—熱處理中' },
+  { img: '/heat-step/quar-7.jpeg', desc: '由控制盤開機即可,一個流程約3~4小時' },
+  {
+    img: '/heat-step/quar-8.jpeg',
+    desc: '熱處理完整結束後，將木材包材蓋上IPPC章',
+  },
+];
 </script>
 <style lang="scss" scoped>
+.animated-text {
+  animation-name: fadeEffect;
+  animation-fill-mode: forwards;
+  animation-duration: 5s;
+}
+
+@keyframes fadeEffect {
+  0% {
+    opacity: 0;
+    display: none;
+    transform: translateY(-20px);
+    width: 0;
+  }
+  100% {
+    opacity: 1;
+    width: 100%;
+    @include flexCenter;
+    transform: translateY(0);
+  }
+}
 .app {
   color: $color-thicker;
   min-height: 100vh;
-}
-.nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.5rem 1.5rem;
-  border-bottom: 1px solid $color-thicker;
-  ul {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    list-style: none;
-    li {
-      margin: 0 1.5rem;
-      a {
-        color: $color-thicker;
-        text-decoration: none;
-        &:hover {
-          color: $color-thick;
-        }
-      }
-    }
-  }
 }
 .slider-container {
   max-width: 1920px;
@@ -151,27 +230,58 @@ const portfolios = [
   justify-content: center;
   flex-direction: column;
   padding: 2.5rem;
+  @include queryMaxWidth($queryMD) {
+    padding: 1.5rem;
+  }
+}
+.our-service {
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://source.unsplash.com/5fNmWej4tAA/1920');
+    @include bgCenter(cover);
+    z-index: -1;
+    opacity: 0.3;
+  }
 }
 .service-list {
   display: flex;
   align-items: center;
   justify-content: center;
+  @include queryMaxWidth($queryMD) {
+    flex-direction: column;
+  }
   .service-item {
     width: 300px;
     border-radius: 0.8rem;
     overflow: hidden;
+
     &:not(:last-child) {
       margin-right: 4rem;
     }
     .title {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: $color-thick;
+      color: $color-thickest;
       margin-bottom: 1rem;
+      @include queryMaxWidth($queryMD) {
+        text-align: center;
+        margin: 0.8rem 0;
+      }
     }
     .desc {
-      color: $color-thick;
+      color: $color-thickest;
       margin-bottom: 1rem;
+    }
+
+    @include queryMaxWidth($queryMD) {
+      margin-bottom: 1.5rem;
+      &:not(:last-child) {
+        margin-right: 0;
+      }
     }
   }
   .service-item__img {
@@ -201,7 +311,13 @@ const portfolios = [
   overflow: visible;
   position: relative;
   max-width: 100%;
-  color: $color-primary;
+  @include queryMaxWidth($queryMD) {
+    padding: 1.5rem;
+  }
+
+  .title-group {
+    color: $color-primary;
+  }
   &::before {
     content: '';
     position: absolute;
@@ -212,41 +328,149 @@ const portfolios = [
     background-color: $color-thicker;
     z-index: -1;
   }
-}
-.group {
-  @include flexCenter(row);
-}
-.portfolio-info {
-  @include flexCenter(column);
-  align-items: flex-start;
-  width: 30%;
-  margin-right: 0.5rem;
-  padding-right: 0.5rem;
-}
-.portfolio-list-container {
-  width: 70%;
-  overflow: auto;
-}
-.portfolio-list {
-  display: flex;
-  flex-shrink: 0;
-}
-.portfolio-item {
-  width: 400px;
-  height: 300px;
-  padding-bottom: 1.2rem;
-  &:not(:last-child) {
-    margin-right: 1rem;
+  .group {
+    @include flexCenter(row);
+    @include queryMaxWidth($queryMD) {
+      flex-direction: column;
+    }
   }
-  padding: 0.8rem;
-  background-color: rgba($color-thick, .5);
-  @include flexCenter(row);
-  border-radius: 0.8rem;
-  &__img {
+  .portfolio-info {
+    @include flexCenter(column);
+    align-items: flex-start;
+    width: 30%;
+    margin-right: 0.5rem;
+    padding-right: 0.5rem;
+    @include queryMaxWidth($queryMD) {
+      width: 100%;
+      margin-bottom: 1.5rem;
+      margin-right: 0;
+      padding-right: 0;
+    }
+  }
+  .portfolio-list-container {
+    width: 70%;
+    overflow: auto;
+    @include queryMaxWidth($queryMD) {
+      width: 100%;
+    }
+  }
+  .portfolio-list {
+    display: flex;
+    flex-shrink: 0;
+    padding-bottom: 1.5rem;
+  }
+  .portfolio-item {
+    width: 400px;
+    height: 300px;
+    padding-bottom: 1.2rem;
+    &:not(:last-child) {
+      margin-right: 1rem;
+    }
+    padding: 0.8rem;
+    background-color: rgba($color-thick, 0.5);
+    @include flexCenter(row);
     border-radius: 0.8rem;
-    @include bgCenter(cover);
+    &__img {
+      border-radius: 0.8rem;
+      @include bgCenter(cover);
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+.heat-step {
+  position: relative;
+  &::after {
+    content: '';
     width: 100%;
     height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url('https://source.unsplash.com/9DRYbaWevgk/1920');
+    backdrop-filter: blur(10px);
+    background-position: center top;
+    background-size: cover;
+    opacity: 0.5;
+    z-index: -1;
+  }
+  .steps {
+    position: relative;
+    z-index: 5;
+    @include flexCenter;
+    flex-wrap: wrap;
+    max-width: 960px;
+    margin: auto;
+  }
+  .step-card-container {
+    position: relative;
+    @include flexCenter;
+    &:nth-child(4n) {
+      .step-arrow {
+        display: none;
+      }
+    }
+    @include queryMaxWidth($queryLG) {
+      flex-direction: column;
+    }
+    .step-num {
+      display: none;
+      font-weight: bold;
+      margin-bottom: 0;
+      @include queryMaxWidth($queryMD) {
+        display: block;
+      }
+    }
+    .step-arrow {
+      position: absolute;
+      top: 50%;
+      left: 100%;
+      transform: translate(-50%, -50%);
+      font-size: 1.5rem;
+
+      @include queryMaxWidth($queryMD) {
+        display: none;
+      }
+    }
+    .step-card {
+      width: 200px;
+      height: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-radius: 12px;
+      margin: 10px 15px;
+      overflow: hidden;
+      .step-card__img {
+        width: 100%;
+        width: 200px;
+        height: 220px;
+        @include bgCenter(100% 100%);
+        background-color: antiquewhite;
+      }
+      .step-card__desc {
+        background-color: $color-thick;
+        color: $color-primary;
+        padding: 0 5px;
+        flex: 1;
+        text-align: center;
+        @include flexCenter;
+      }
+    }
+  }
+  .step-detail {
+    margin: auto;
+    width: 100%;
+    text-align: center;
+    color: #000;
+  }
+}
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 </style>
