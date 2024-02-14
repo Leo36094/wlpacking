@@ -1,6 +1,8 @@
 <template>
-  <div class="nav">
-    <div class="logo">LOGO</div>
+  <div class="nav border-b border-gray-400">
+    <div class="logo">
+      <img width="150" src="/logo/wlpacking-logo.png" alt="維利包裝有限公司" />
+    </div>
     <ul class="nav-group">
       <li><nuxt-link to="/">公司簡介</nuxt-link></li>
       <li><nuxt-link to="#product">產品介紹</nuxt-link></li>
@@ -24,7 +26,6 @@
 </template>
 <script setup lang="ts">
 import { ref } from 'vue';
-
 const expand = ref(false);
 
 const toggleExpand = () => {
@@ -38,7 +39,6 @@ const toggleExpand = () => {
   align-items: center;
   justify-content: space-between;
   padding: 0.5rem 1.5rem;
-  border-bottom: 1px solid $color-thicker;
   position: relative;
   .nav-group {
     display: flex;
@@ -107,6 +107,10 @@ const toggleExpand = () => {
     padding: 1.5rem 0.5rem;
     z-index: 100;
     display: none;
+    p {
+      margin: 1rem 0;
+      font-size: 1rem;
+    }
     a {
       color: $color-thick;
       text-decoration: none;

@@ -9,10 +9,11 @@ export default defineNuxtConfig({
           additionalData: `
           @import "@/assets/scss/variables.scss";
           @import "@/assets/scss/mixins.scss";
-          `
-        }
-      }
-    }
-  }
+          `,
+        },
+      },
+    },
+  },
 
-})
+  modules: ['@nuxt/image', "@nuxtjs/tailwindcss"],
+});
