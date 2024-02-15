@@ -59,10 +59,10 @@ onUnmounted(() => {
   @include withContainer;
   max-width: 1920px;
   margin: 0 auto;
-  height: 600px;
+  min-height: 400px;
   background-color: $color-thick;
   background-image: url('/weili@2/box08.jpg');
-  background-size: 100% auto;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: 50% 50%;
   display: flex;
@@ -73,16 +73,20 @@ onUnmounted(() => {
   }
   .slider {
     width: 100%;
-    padding: 1rem;
+    padding: 1.5rem;
     border-radius: 0.5rem;
     @include queryMinWidth($querySM) {
       width: 500px;
     }
     .title {
-      font-size: 2rem;
+      font-size: 1.5rem;
       color: $color-thickest;
       text-align: center;
       font-weight: bold;
+      margin-bottom: 1rem;
+      @include queryMaxWidth($querySM) {
+        font-size: 2rem;
+      }
     }
     backdrop-filter: blur(10px);
     background-color: rgba($color-primary, 0.5);

@@ -1,13 +1,12 @@
 <template>
   <div class="nav border-b border-gray-400">
-    <div class="logo">
+    <div class="logo" @click="router.push('/')">
       <img width="150" src="/logo/wlpacking-logo.png" alt="維利包裝有限公司" />
     </div>
     <ul class="nav-group">
-      <li><nuxt-link to="/">公司簡介</nuxt-link></li>
-      <li><nuxt-link to="#product">產品介紹</nuxt-link></li>
-      <li><nuxt-link to="#professional">檢疫與熱處理</nuxt-link></li>
-      <li><nuxt-link to="#contact">聯絡我們</nuxt-link></li>
+      <li v-for="(nav, idx) in navs" :key="idx">
+        <nuxt-link :to="nav.to">{{ nav.name }}</nuxt-link>
+      </li>
     </ul>
     <div class="nav-menu-button" @click="toggleExpand">
       <div :class="['switch-button', { active: expand }]"></div>
@@ -15,10 +14,9 @@
     <transition name="fade">
       <keep-alive>
         <div v-if="expand" :class="['expand-list', { show: expand }]">
-          <p><nuxt-link to="/">公司簡介</nuxt-link></p>
-          <p><nuxt-link to="#product">產品介紹</nuxt-link></p>
-          <p><nuxt-link to="#professional">檢疫與熱處理</nuxt-link></p>
-          <p><nuxt-link to="#contact">聯絡我們</nuxt-link></p>
+          <p v-for="(nav, idx) in navs" :key="idx">
+            <nuxt-link :to="nav.to">{{ nav.name }}</nuxt-link>
+          </p>
         </div>
       </keep-alive>
     </transition>
@@ -26,7 +24,29 @@
 </template>
 <script setup lang="ts">
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 const expand = ref(false);
+
+const router = useRouter();
+
+const navs = [
+  {
+    name: '公司簡介',
+    to: { path: '/', hash: '#core-values' },
+  },
+  {
+    name: '產品介紹',
+    to: { path: '/product', hash: '' },
+  },
+  {
+    name: '檢疫與熱處理',
+    to: { path: '/', hash: '#professional' },
+  },
+  {
+    name: '聯絡我們',
+    to: { path: '/', hash: '#contact' },
+  },
+];
 
 const toggleExpand = () => {
   expand.value = !expand.value;

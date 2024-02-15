@@ -1,5 +1,5 @@
 <template>
-  <div class="contact">
+  <div class="contact" id="contact">
     <SectionTitle title="聯絡我們" />
     <div class="contact-container">
       <div class="contact-info">
@@ -34,6 +34,7 @@ import SectionTitle from './SectionTitle';
 </script>
 <style lang="scss" scoped>
 .contact {
+  padding-top: 3rem;
   .contact-container {
     @include withContainer;
     justify-content: center;

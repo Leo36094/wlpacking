@@ -3,16 +3,14 @@
     <Banner />
     <div class="our-service">
       <div class="our-service-container">
-        <SectionTitle title="經營理念" />
-        <div class="core-values">
+        <SectionTitle anchor="core-values" class="title" title="經營理念" />
+        <div class="core-values" data-aos="zoom-in">
           <p class="service-text">
             維利包裝公司從事木箱包裝以來，秉持最堅固的品質包裝、安全的產品服務、迅速的完善作業、節省成本的態度，以滿足所有客戶對於木箱包裝各項需求之服務精神，進而達成企業永續經營、誠信負責的目標。
           </p>
-          <p class="service-text">
-            隨著科技的進步新興產業的需求，維利包裝公司不斷精益求精，提高更卓越的製品水準及升級作業效率，並提供在維利公司廠區製作木箱、上櫃、固定貨櫃一貫作業之服務，為客戶提供更好的消費環境。
-          </p>
         </div>
-        <SectionTitle title="我們的服務" />
+        <div class="divider"></div>
+        <SectionTitle class="title" title="我們的服務" />
         <div class="service-list">
           <div class="service-item" v-for="(item, idx) in services" :key="idx">
             <div class="service-item__img">
@@ -27,13 +25,16 @@
             </div>
           </div>
         </div>
-        <br />
+        <div class="divider"></div>
+        <p class="service-text">
+          隨著科技的進步新興產業的需求，維利包裝公司不斷精益求精，提高更卓越的製品水準及升級作業效率，並提供在維利公司廠區製作木箱、上櫃、固定貨櫃一貫作業之服務，為客戶提供更好的消費環境。
+        </p>
       </div>
     </div>
     <div class="portfolio">
       <div class="portfolio-container">
         <div class="group">
-          <div class="portfolio-info">
+          <div class="portfolio-info" data-aos="fade-right">
             <SectionTitle
               class="title-group"
               title="我們的作品"
@@ -42,6 +43,7 @@
           </div>
           <div class="portfolio-list-container">
             <div
+              data-aos="fade-left"
               class="portfolio-list"
               :style="{ width: portfolios.length * 300 + 'px' }"
             >
@@ -62,8 +64,8 @@
     </div>
     <div class="heat-step">
       <div class="heat-step-container">
-        <h2 class="title">木材檢疫熱處理</h2>
-        <div class="steps">
+        <SectionTitle title="木材檢疫熱處理" anchor="professional" />
+        <div class="steps" data-aos="zoom-in">
           <div
             class="step-card-container"
             v-for="(step, index) in steps"
@@ -80,6 +82,7 @@
             </div>
           </div>
         </div>
+        <div class="divider"></div>
         <div class="step-detail">
           <p>
             本公司為行政院農委會動植物防疫檢疫局熱處理合格廠商及績優廠商，使用之設備符合ISPM15(國際植物防疫檢疫措施第15號標準)規定。
@@ -90,7 +93,7 @@
         </div>
       </div>
     </div>
-    <Contact />
+    <Contact data-aos="fade" />
   </div>
 </template>
 <script setup lang="ts">
@@ -153,6 +156,12 @@ const steps = [
 ];
 </script>
 <style lang="scss" scoped>
+.divider {
+  height: 1px;
+  background-color: $color-thicker;
+  margin: 1.5rem 0;
+  width: 100%;
+}
 .our-service {
   position: relative;
   .our-service-container {
@@ -171,11 +180,11 @@ const steps = [
     opacity: 0.3;
   }
   .service-list {
-    display: flex;
-    justify-content: center;
+    @include flexCenter(column);
     margin-top: 1.5rem;
-    @include queryMaxWidth($queryMD) {
-      flex-direction: column;
+    @include queryMinWidth($queryMD) {
+      flex-direction: row;
+      align-items: flex-start;
     }
     .service-item {
       width: 300px;
@@ -231,10 +240,13 @@ const steps = [
     color: $color-thickest;
     font-size: 1.1rem;
     max-width: 1000px;
-    margin: auto;
+    margin: 1rem auto 2rem auto;
   }
   .service-text {
     text-align: center;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1.5px;
+    color: $color-thickest;
   }
 }
 .portfolio-container {
