@@ -1,6 +1,6 @@
 <template>
   <div class="nav border-b border-gray-400">
-    <div class="logo" @click="router.push('/')">
+    <div class="logo cursor-pointer" @click="router.push('/')">
       <img width="150" src="/logo/wlpacking-logo.png" alt="維利包裝有限公司" />
     </div>
     <ul class="nav-group">

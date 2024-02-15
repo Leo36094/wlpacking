@@ -2,6 +2,7 @@
   <div class="home">
     <Banner />
     <div class="our-service">
+      <div class="our-service-bg"></div>
       <div class="our-service-container">
         <SectionTitle anchor="core-values" class="title" title="經營理念" />
         <div class="core-values" data-aos="zoom-in">
@@ -66,6 +67,7 @@
       </div>
     </div>
     <div class="heat-step">
+      <div class="heat-step-bg"></div>
       <div class="heat-step-container">
         <SectionTitle title="木材檢疫熱處理" anchor="professional" />
         <div class="steps" data-aos="zoom-in">
@@ -169,11 +171,7 @@ const router = useRouter();
 }
 .our-service {
   position: relative;
-  .our-service-container {
-    @include withContainer;
-  }
-  &::before {
-    content: '';
+  .our-service-bg {
     position: absolute;
     top: 0;
     left: 0;
@@ -183,6 +181,9 @@ const router = useRouter();
     @include bgCenter(cover);
     z-index: -1;
     opacity: 0.3;
+  }
+  .our-service-container {
+    @include withContainer;
   }
   .service-list {
     @include flexCenter(column);
@@ -334,8 +335,7 @@ const router = useRouter();
     @include withContainer;
   }
   position: relative;
-  &::after {
-    content: '';
+  .heat-step-bg {
     width: 100%;
     height: 100%;
     position: absolute;

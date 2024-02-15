@@ -1,13 +1,15 @@
 <template>
-  <div class="product py-10">
+  <div class="product relative">
+    <div class="product-bg"></div>
     <div class="xl:container m-auto px-6 py-6 md:px-0">
       <SectionTitle
         class="title-group my-6"
         title="我們的產品"
         desc="機械木箱、鐵底機械木箱、真空木箱包裝、防銹密箱、防震木箱、棧板、底座、棧板捆包、油路條、木條箱、木材檢疫熱處理。"
       />
+
       <div
-        class="flex flex-col lg:flex-row flex-wrap items-stretch justify-center md:content-stretch content-center"
+        class="relative flex flex-col lg:flex-row flex-wrap items-stretch justify-center md:content-stretch content-center"
       >
         <div
           v-for="product in products"
@@ -104,6 +106,15 @@ const products = [
 const imgs = ['/weili@1/box07.jpg', '/weili@1/box08.jpg', '/weili@1/box09.jpg'];
 const openLightbox = (product: Product) => {
   showLightbox.value = true;
-  console.log(product);
 };
 </script>
+<style lang="scss" scoped>
+.product-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0.2;
+  z-index: -1;
+  background: linear-gradient(#e7f4ff, 50%, #45b796) fixed;
+}
+</style>

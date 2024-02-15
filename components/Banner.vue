@@ -59,7 +59,7 @@ onUnmounted(() => {
   @include withContainer;
   max-width: 1920px;
   margin: 0 auto;
-  min-height: 400px;
+  min-height: 100vh;
   background-color: $color-thick;
   background-image: url('/weili@2/box08.jpg');
   background-size: cover;
@@ -70,6 +70,9 @@ onUnmounted(() => {
   justify-content: center;
   @include queryMaxWidth($querySM) {
     height: 100%;
+  }
+  @include queryMinWidth($queryMD) {
+    min-height: 800px;
   }
   .slider {
     width: 100%;

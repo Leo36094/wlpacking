@@ -1,6 +1,7 @@
 <template>
   <div class="contact" id="contact">
-    <SectionTitle title="聯絡我們" />
+    <div class="contact-bg"></div>
+    <SectionTitle class="contact-title" title="聯絡我們" />
     <div class="contact-container">
       <div class="contact-info">
         <p>維利包裝有限公司</p>
@@ -34,11 +35,25 @@ import SectionTitle from './SectionTitle';
 </script>
 <style lang="scss" scoped>
 .contact {
-  padding-top: 3rem;
+  position: relative;
+  .contact-title {
+    padding-top: 3rem;
+    margin-top: 0;
+  }
+  .contact-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    @include bgCenter(cover);
+    background-image: url('/bg/contact-bg.jpg');
+    opacity: 0.3;
+    z-index: -1;
+  }
   .contact-container {
     @include withContainer;
     justify-content: center;
     align-items: center;
+    padding-top: 3rem;
     @include queryMinWidth($queryMD) {
       justify-content: space-around;
       flex-direction: row;
@@ -46,6 +61,7 @@ import SectionTitle from './SectionTitle';
   }
   .contact-info {
     font-size: 1.5rem;
+    color: $color-thickest;
   }
   .contact-map {
     max-width: 100%;
@@ -65,7 +81,11 @@ import SectionTitle from './SectionTitle';
   }
   a,
   ol {
-    color: $color-thick;
+    color: #334155;
+    text-decoration: underline;
+  }
+  a {
+    cursor: pointer;
   }
 }
 </style>
