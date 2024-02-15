@@ -41,7 +41,10 @@
               desc="  忍完夏欠沒跳放，請包色得教助日斥點掃也朱詞音有，細寺旦綠多急實朋洋急流午心雄空請，得種習平歡很大；四河停帽信別，"
             />
           </div>
-          <div class="portfolio-list-container">
+          <div
+            class="portfolio-list-container"
+            @click="router.push('/product')"
+          >
             <div
               data-aos="fade-left"
               class="portfolio-list"
@@ -97,8 +100,8 @@
   </div>
 </template>
 <script setup lang="ts">
+import { useRouter } from 'vue-router';
 // components
-import Nav from '../components/Nav';
 import SectionTitle from '../components/SectionTitle';
 
 // views
@@ -154,6 +157,8 @@ const steps = [
     desc: '熱處理完整結束後，將木材包材蓋上IPPC章',
   },
 ];
+
+const router = useRouter();
 </script>
 <style lang="scss" scoped>
 .divider {

@@ -2,7 +2,11 @@
 modeul.exports = {
   content: [],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'google-material': ['Material Icons'],
+      },
+    },
   },
   plugins: [],
 };

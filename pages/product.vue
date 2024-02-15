@@ -24,7 +24,8 @@
         </div>
       </div>
     </div>
-    <Lightbox v-if="showLightbox" :imgs="imgs" @close="showLightbox = false" />
+
+    <Lightbox :show="showLightbox" :imgs="imgs" @close="showLightbox = false" />
   </div>
 </template>
 <script setup lang="ts">

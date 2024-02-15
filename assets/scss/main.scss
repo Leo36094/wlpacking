@@ -13,3 +13,25 @@
     opacity: 1;
   }
 }
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+.fade {
+  &-enter-active,
+  &-leave-active {
+    transition: opacity 0.3s;
+    .lightbox {
+      transition: opacity 0.3s, transform 0.3s;
+    }
+  }
+  &-enter-from,
+  &-leave-to {
+    opacity: 0;
+    .lightbox {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+  }
+}
