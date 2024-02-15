@@ -14,7 +14,7 @@
         <Close />
       </button>
       <div
-        class="relative w-full md:w-3/4 h-40% lg:h-[65%] bg-black border border-red flex item-center justify-center"
+        class="relative w-full md:w-3/4 h-40% md:h-[50%] lg:h-[55%] xl:h-[60%] bg-black border border-red flex item-center justify-center"
       >
         <Swiper
           :pagination="true"

@@ -15,7 +15,7 @@
       <keep-alive>
         <div v-if="expand" :class="['expand-list', { show: expand }]">
           <p v-for="(nav, idx) in navs" :key="idx">
-            <nuxt-link :to="nav.to">{{ nav.name }}</nuxt-link>
+            <a @click="handleNavClick(nav.to)">{{ nav.name }}</a>
           </p>
         </div>
       </keep-alive>
@@ -51,6 +51,10 @@ const navs = [
 const toggleExpand = () => {
   expand.value = !expand.value;
 };
+const handleNavClick = (path: { path: string; hash: string }) => {
+  expand.value = false;
+  router.push(path);
+};
 </script>
 
 <style lang="scss" scoped>
@@ -59,7 +63,13 @@ const toggleExpand = () => {
   align-items: center;
   justify-content: space-between;
   padding: 0.5rem 1.5rem;
-  position: relative;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+  background-color: #fff;
+  @include queryMinWidth($queryLG) {
+    position: relative;
+  }
   .nav-group {
     display: flex;
     align-items: center;
