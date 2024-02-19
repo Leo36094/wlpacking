@@ -1,5 +1,5 @@
 <template>
-  <div class="product relative">
+  <div class="product relative pt-10 sm:pt-10 xl:pt-0">
     <div class="product-bg"></div>
     <div class="xl:container m-auto px-6 py-6 md:px-0">
       <SectionTitle
