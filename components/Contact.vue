@@ -1,6 +1,5 @@
 <template>
   <div class="contact" id="contact">
-    <div class="contact-bg"></div>
     <SectionTitle class="contact-title" title="聯絡我們" />
     <div class="contact-container">
       <div class="contact-info">

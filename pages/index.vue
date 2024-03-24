@@ -31,6 +31,9 @@
         </p>
       </div>
     </div>
+    <div class="heat-step">
+      <HeapStep />
+    </div>
     <div class="portfolio">
       <div class="portfolio-container">
         <div class="group">
@@ -65,38 +68,7 @@
         </div>
       </div>
     </div>
-    <div class="heat-step">
-      <div class="heat-step-bg"></div>
-      <div class="heat-step-container">
-        <SectionTitle title="木材檢疫熱處理" anchor="professional" />
-        <div class="steps" data-aos="zoom-in">
-          <div
-            class="step-card-container"
-            v-for="(step, index) in steps"
-            :key="index"
-          >
-            <p class="step-num">STEP {{ index + 1 }}</p>
-            <div class="step-arrow">➜</div>
-            <div class="step-card">
-              <div
-                class="step-card__img"
-                :style="{ backgroundImage: `url(${step.img})` }"
-              ></div>
-              <div class="step-card__desc">{{ step.desc }}</div>
-            </div>
-          </div>
-        </div>
-        <div class="divider"></div>
-        <div class="step-detail">
-          <p>
-            本公司為行政院農委會動植物防疫檢疫局熱處理合格廠商及績優廠商，使用之設備符合ISPM15(國際植物防疫檢疫措施第15號標準)規定。
-          </p>
-          <p>
-            將木材中心溫度加熱至攝氏56度以上，並連續保持30分鐘以上，經熱處理檢疫處理後，於明顯處蓋上國際植物保護公約IPPC檢疫戳章，以標示完成檢疫處理。
-          </p>
-        </div>
-      </div>
-    </div>
+
     <Contact data-aos="fade" />
   </div>
 </template>
@@ -109,6 +81,7 @@ import SectionTitle from "../components/SectionTitle";
 import Banner from "../components/Banner.vue";
 import Contact from "../components/Contact.vue";
 import CoreValue from "~/components/CoreValue.vue";
+import HeapStep from "~/components/HeapStep.vue";
 
 const services = [
   {
@@ -127,41 +100,9 @@ const services = [
     desc: "真空木箱包裝、棧板捆包、防震木箱等精密或通訊相關儀器包裝。",
   },
 ];
-const portfolios = [
-  "/weili@2/box01.jpg",
-  "/weili@2/pallet04.jpg",
-  "/weili@2/box02.jpg",
-  "/weili@2/pallet01.jpg",
-  "/weili@2/box03.jpg",
-  "/weili@2/box04.jpg",
-  "/weili@2/box05.jpg",
-  "/weili@2/box06.jpg",
-  "/weili@2/box07.jpg",
-  "/weili@2/box08.jpg",
-];
-
-const steps = [
-  { img: "/heat-step/quar-1.jpg", desc: "熱處理機符合ISPM15標準" },
-  { img: "/heat-step/quar-2.jpeg", desc: "測量處理前木材含水濕度" },
-  {
-    img: "/heat-step/quar-3.jpeg",
-    desc: "推入木箱、木箱半成品擺放，不可堵塞出風口",
-  },
-  { img: "/heat-step/quar-4.jpeg", desc: "鑽上溫度探針計孔共6區" },
-  {
-    img: "/heat-step/quar-5.jpg",
-    desc: "插上測量木材中心溫度計，共6支並且填入樹脂",
-  },
-  { img: "/heat-step/quar-6.jpeg", desc: "關閉室門—熱處理中" },
-  {
-    img: "/heat-step/quar-7.jpg",
-    desc: "由控制盤開機即可,一個流程約3~4小時",
-  },
-  {
-    img: "/heat-step/quar-8.jpeg",
-    desc: "熱處理完整結束後，將木材包材蓋上IPPC章",
-  },
-];
+const portfolios = Array(13)
+  .fill(0)
+  .map((_, idx) => `/works/work${idx + 1}.jpg`);
 
 const router = useRouter();
 </script>
@@ -259,19 +200,17 @@ const router = useRouter();
   }
 }
 .portfolio-container {
-  @include withContainer;
   padding-right: 0;
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
   overflow: visible;
   position: relative;
   max-width: 100%;
-  @include queryMaxWidth($queryMD) {
-    padding: 1.5rem;
-  }
+  background-color: $color-theme-brown-soft;
+  padding-right: 0;
 
   .title-group {
-    color: $color-primary;
+    color: $color-theme-black;
   }
   &::before {
     content: "";
@@ -334,92 +273,7 @@ const router = useRouter();
   }
 }
 .heat-step {
-  .heat-step-container {
-    @include withContainer;
-  }
-  position: relative;
-  .heat-step-bg {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-image: url("/bg/heat-step-bg.jpg");
-    backdrop-filter: blur(10px);
-    background-position: center top;
-    background-size: cover;
-    opacity: 0.5;
-    z-index: -1;
-  }
-  .steps {
-    position: relative;
-    z-index: 5;
-    @include flexCenter;
-    flex-wrap: wrap;
-    max-width: 1000px;
-    margin: auto;
-  }
-  .step-card-container {
-    position: relative;
-    @include flexCenter;
-    &:nth-child(4n) {
-      .step-arrow {
-        display: none;
-      }
-    }
-    @include queryMaxWidth($queryLG) {
-      flex-direction: column;
-    }
-    .step-num {
-      display: none;
-      font-weight: bold;
-      margin-bottom: 0;
-      @include queryMaxWidth($queryMD) {
-        display: block;
-      }
-    }
-    .step-arrow {
-      position: absolute;
-      top: 50%;
-      left: 100%;
-      transform: translate(-50%, -50%);
-      font-size: 1.5rem;
-
-      @include queryMaxWidth($queryMD) {
-        display: none;
-      }
-    }
-    .step-card {
-      width: 200px;
-      height: 300px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      border-radius: 12px;
-      margin: 10px 15px;
-      overflow: hidden;
-      .step-card__img {
-        width: 100%;
-        width: 200px;
-        height: 220px;
-        @include bgCenter(100% 100%);
-        background-color: antiquewhite;
-      }
-      .step-card__desc {
-        background-color: $color-thick;
-        color: $color-primary;
-        padding: 0 5px;
-        flex: 1;
-        text-align: center;
-        @include flexCenter;
-      }
-    }
-  }
-  .step-detail {
-    margin: auto;
-    max-width: 960px;
-    text-align: center;
-    color: #000;
-  }
+  margin-bottom: 3rem;
+  padding: 2rem 0;
 }
 </style>
