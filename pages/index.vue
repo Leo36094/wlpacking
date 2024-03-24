@@ -2,6 +2,7 @@
   <div class="home">
     <Banner />
     <CoreValue />
+    <OurService />
     <div class="our-service">
       <div class="our-service-bg"></div>
       <div class="our-service-container">
@@ -82,6 +83,7 @@ import Banner from "../components/Banner.vue";
 import Contact from "../components/Contact.vue";
 import CoreValue from "~/components/CoreValue.vue";
 import HeapStep from "~/components/HeapStep.vue";
+import OurService from '~/components/OurService.vue';
 
 const services = [
   {
