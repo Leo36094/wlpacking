@@ -26,6 +26,7 @@ import Footer from './components/Footer.vue';
 <style lang="scss" scoped>
 .app {
   color: $color-thicker;
+  background-color: $color-theme-brown;
   min-height: 100vh;
   font-size: 1.1rem;
 }

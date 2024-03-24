@@ -1,19 +1,18 @@
 <template>
   <div class="home">
     <Banner />
+    <CoreValue />
     <div class="our-service">
       <div class="our-service-bg"></div>
       <div class="our-service-container">
-        <SectionTitle anchor="core-values" class="title" title="經營理念" />
-        <div class="core-values" data-aos="zoom-in">
-          <p class="service-text">
-            維利包裝公司從事木箱包裝以來，秉持最堅固的品質包裝、安全的產品服務、迅速的完善作業、節省成本的態度，以滿足所有客戶對於木箱包裝各項需求之服務精神，進而達成企業永續經營、誠信負責的目標。
-          </p>
-        </div>
         <div class="divider"></div>
         <SectionTitle class="title" title="我們的服務" />
         <div class="service-list">
-          <div class="service-item" v-for="(item, idx) in services" :key="idx">
+          <div
+            class="service-item"
+            v-for="(item, idx) in services"
+            :key="idx"
+          >
             <div class="service-item__img">
               <div
                 class="img"
@@ -102,61 +101,65 @@
   </div>
 </template>
 <script setup lang="ts">
-import { useRouter } from 'vue-router';
+import { useRouter } from "vue-router";
 // components
-import SectionTitle from '../components/SectionTitle';
+import SectionTitle from "../components/SectionTitle";
 
 // views
-import Banner from '../components/Banner.vue';
-import Contact from '../components/Contact.vue';
+import Banner from "../components/Banner.vue";
+import Contact from "../components/Contact.vue";
+import CoreValue from "~/components/CoreValue.vue";
 
 const services = [
   {
-    name: '木箱（Box Service)',
-    img: '/weili@2/box01.jpg',
-    desc: '機械木箱、鐵底機械木箱、真空木箱包裝、防銹密箱、防震木箱、木材檢疫熱處理等',
+    name: "木箱（Box Service)",
+    img: "/weili@2/box01.jpg",
+    desc: "機械木箱、鐵底機械木箱、真空木箱包裝、防銹密箱、防震木箱、木材檢疫熱處理等",
   },
   {
-    name: '棧板（Pallets）',
-    img: '/weili@2/pallet01.jpg',
-    desc: '棧板、底座、棧板捆包、油路條、木條箱、木材檢疫熱處理等。',
+    name: "棧板（Pallets）",
+    img: "/weili@2/pallet01.jpg",
+    desc: "棧板、底座、棧板捆包、油路條、木條箱、木材檢疫熱處理等。",
   },
   {
-    name: '產品包裝（Packaging）',
-    img: '/weili@2/box03.jpg',
-    desc: '真空木箱包裝、棧板捆包、防震木箱等精密或通訊相關儀器包裝。',
+    name: "產品包裝（Packaging）",
+    img: "/weili@2/box03.jpg",
+    desc: "真空木箱包裝、棧板捆包、防震木箱等精密或通訊相關儀器包裝。",
   },
 ];
 const portfolios = [
-  '/weili@2/box01.jpg',
-  '/weili@2/pallet04.jpg',
-  '/weili@2/box02.jpg',
-  '/weili@2/pallet01.jpg',
-  '/weili@2/box03.jpg',
-  '/weili@2/box04.jpg',
-  '/weili@2/box05.jpg',
-  '/weili@2/box06.jpg',
-  '/weili@2/box07.jpg',
-  '/weili@2/box08.jpg',
+  "/weili@2/box01.jpg",
+  "/weili@2/pallet04.jpg",
+  "/weili@2/box02.jpg",
+  "/weili@2/pallet01.jpg",
+  "/weili@2/box03.jpg",
+  "/weili@2/box04.jpg",
+  "/weili@2/box05.jpg",
+  "/weili@2/box06.jpg",
+  "/weili@2/box07.jpg",
+  "/weili@2/box08.jpg",
 ];
 
 const steps = [
-  { img: '/heat-step/quar-1.jpg', desc: '熱處理機符合ISPM15標準' },
-  { img: '/heat-step/quar-2.jpeg', desc: '測量處理前木材含水濕度' },
+  { img: "/heat-step/quar-1.jpg", desc: "熱處理機符合ISPM15標準" },
+  { img: "/heat-step/quar-2.jpeg", desc: "測量處理前木材含水濕度" },
   {
-    img: '/heat-step/quar-3.jpeg',
-    desc: '推入木箱、木箱半成品擺放，不可堵塞出風口',
+    img: "/heat-step/quar-3.jpeg",
+    desc: "推入木箱、木箱半成品擺放，不可堵塞出風口",
   },
-  { img: '/heat-step/quar-4.jpeg', desc: '鑽上溫度探針計孔共6區' },
+  { img: "/heat-step/quar-4.jpeg", desc: "鑽上溫度探針計孔共6區" },
   {
-    img: '/heat-step/quar-5.jpg',
-    desc: '插上測量木材中心溫度計，共6支並且填入樹脂',
+    img: "/heat-step/quar-5.jpg",
+    desc: "插上測量木材中心溫度計，共6支並且填入樹脂",
   },
-  { img: '/heat-step/quar-6.jpeg', desc: '關閉室門—熱處理中' },
-  { img: '/heat-step/quar-7.jpg', desc: '由控制盤開機即可,一個流程約3~4小時' },
+  { img: "/heat-step/quar-6.jpeg", desc: "關閉室門—熱處理中" },
   {
-    img: '/heat-step/quar-8.jpeg',
-    desc: '熱處理完整結束後，將木材包材蓋上IPPC章',
+    img: "/heat-step/quar-7.jpg",
+    desc: "由控制盤開機即可,一個流程約3~4小時",
+  },
+  {
+    img: "/heat-step/quar-8.jpeg",
+    desc: "熱處理完整結束後，將木材包材蓋上IPPC章",
   },
 ];
 
@@ -177,7 +180,7 @@ const router = useRouter();
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('/bg/service-bg.jpg');
+    background-image: url("/bg/service-bg.jpg");
     @include bgCenter(cover);
     z-index: -1;
     opacity: 0.3;
@@ -271,7 +274,7 @@ const router = useRouter();
     color: $color-primary;
   }
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     right: 0;
@@ -341,7 +344,7 @@ const router = useRouter();
     position: absolute;
     top: 0;
     left: 0;
-    background-image: url('/bg/heat-step-bg.jpg');
+    background-image: url("/bg/heat-step-bg.jpg");
     backdrop-filter: blur(10px);
     background-position: center top;
     background-size: cover;

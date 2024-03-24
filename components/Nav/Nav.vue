@@ -1,5 +1,5 @@
 <template>
-  <div class="nav border-b border-gray-400">
+  <div class="nav">
     <div class="logo cursor-pointer" @click="router.push('/')">
       <img width="150" src="/logo/wlpacking-logo.png" alt="維利包裝有限公司" />
     </div>
@@ -66,10 +66,7 @@ const handleNavClick = (path: { path: string; hash: string }) => {
   position: fixed;
   width: 100%;
   z-index: 10;
-  background-color: #fff;
-  @include queryMinWidth($queryLG) {
-    position: relative;
-  }
+  position: fixed;
   .nav-group {
     display: flex;
     align-items: center;
