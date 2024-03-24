@@ -2,7 +2,7 @@
   <div class="slider-wrapper">
     <Swiper
       :modules="[Autoplay, EffectFade]"
-
+      :autoplay="{ delay: 2500 }"
       effect="fade"
       :fade-effect="{ crossFade: true }"
       :loop="true"
@@ -13,7 +13,6 @@
         v-for="(banner, idx) in bannerText"
         :key="idx"
       >
-        <!-- <div class="fade-background"></div> -->
         <img class="banner-img" :src="banner.img" />
         <div class="banner-title">
           <div class="title-text first-title">
@@ -189,7 +188,7 @@ onUnmounted(() => {
     margin-top: 20px;
     font-size: 20px;
     @include queryMinWidth($querySM) {
-      font-size: 30px;
+      font-size: 28px;
     }
   }
 }

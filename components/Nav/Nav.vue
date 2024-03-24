@@ -3,7 +3,7 @@
     <div class="logo cursor-pointer" @click="router.push('/')">
       <img width="150" src="/logo/wlpacking-logo.png" alt="維利包裝有限公司" />
     </div>
-    <ul class="nav-group">
+    <ul class="nav-group flex-1">
       <li v-for="(nav, idx) in navs" :key="idx">
         <nuxt-link :to="nav.to">{{ nav.name }}</nuxt-link>
       </li>
@@ -61,7 +61,7 @@ const handleNavClick = (path: { path: string; hash: string }) => {
 .nav {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   padding: 0.5rem 1.5rem;
   position: fixed;
   width: 100%;
@@ -79,6 +79,7 @@ const handleNavClick = (path: { path: string; hash: string }) => {
       margin: 0 1.5rem;
       a {
         color: $color-thicker;
+        text-shadow: 1px 0px 3px $color-theme-black;
         text-decoration: none;
         &:hover {
           color: $color-thick;
