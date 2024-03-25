@@ -3,35 +3,6 @@
     <Banner />
     <CoreValue />
     <OurService />
-    <div class="our-service">
-      <div class="our-service-bg"></div>
-      <div class="our-service-container">
-        <div class="divider"></div>
-        <SectionTitle class="title" title="我們的服務" />
-        <div class="service-list">
-          <div
-            class="service-item"
-            v-for="(item, idx) in services"
-            :key="idx"
-          >
-            <div class="service-item__img">
-              <div
-                class="img"
-                :style="{ backgroundImage: `url(${item.img})` }"
-              ></div>
-            </div>
-            <div class="title">{{ item.name }}</div>
-            <div class="desc">
-              {{ item.desc }}
-            </div>
-          </div>
-        </div>
-        <div class="divider"></div>
-        <p class="service-text">
-          隨著科技的進步新興產業的需求，維利包裝公司不斷精益求精，提高更卓越的製品水準及升級作業效率，並提供在維利公司廠區製作木箱、上櫃、固定貨櫃一貫作業之服務，為客戶提供更好的消費環境。
-        </p>
-      </div>
-    </div>
     <div class="heat-step">
       <HeapStep />
     </div>
@@ -83,25 +54,8 @@ import Banner from "../components/Banner.vue";
 import Contact from "../components/Contact.vue";
 import CoreValue from "~/components/CoreValue.vue";
 import HeapStep from "~/components/HeapStep.vue";
-import OurService from '~/components/OurService.vue';
+import OurService from "~/components/OurService.vue";
 
-const services = [
-  {
-    name: "木箱（Box Service)",
-    img: "/weili@2/box01.jpg",
-    desc: "機械木箱、鐵底機械木箱、真空木箱包裝、防銹密箱、防震木箱、木材檢疫熱處理等",
-  },
-  {
-    name: "棧板（Pallets）",
-    img: "/weili@2/pallet01.jpg",
-    desc: "棧板、底座、棧板捆包、油路條、木條箱、木材檢疫熱處理等。",
-  },
-  {
-    name: "產品包裝（Packaging）",
-    img: "/weili@2/box03.jpg",
-    desc: "真空木箱包裝、棧板捆包、防震木箱等精密或通訊相關儀器包裝。",
-  },
-];
 const portfolios = Array(13)
   .fill(0)
   .map((_, idx) => `/works/work${idx + 1}.jpg`);

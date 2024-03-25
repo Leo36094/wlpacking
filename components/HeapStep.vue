@@ -3,7 +3,7 @@
     <div class="circle"></div>
     <div class="heap-step-content">
       <div class="title">木材檢疫熱處理</div>
-      <div class="subtitle">quarantine &amp; heat Treatment</div>
+      <div class="subtitle">Quarantine &amp; Heat Treatment</div>
       <div class="divider"></div>
       <div class="desc">
         {{ steps[activeIdx].desc }}
